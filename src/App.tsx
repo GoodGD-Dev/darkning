@@ -1,34 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useAppDispatch, useAppSelector } from './core/store/hooks'
+import { increment } from './core/store/slices/counterSlice'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const count = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
+  const [animate, setAnimate] = useState(false)
+
+  // Efeito para animar o contador
+  useEffect(() => {
+    if (count > 0) {
+      setAnimate(true)
+      const timer = setTimeout(() => setAnimate(false), 300)
+      return () => clearTimeout(timer)
+    }
+  }, [count])
+
+  const handleIncrement = () => {
+    dispatch(increment())
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="modern-container">
+      <div className="counter-card">
+        <div className="counter-header">
+          <h1 className="modern-title">Redux Counter</h1>
+          <div className="badge-container">
+            <span className="badge bg-primary">Vite</span>
+            <span className="badge bg-secondary">RTK</span>
+          </div>
+        </div>
+
+        <div className={`counter-display ${animate ? 'pulse' : ''}`}>
+          <span className="counter-value">{count}</span>
+        </div>
+
+        <div className="action-zone">
+          <button className="increment-btn" onClick={handleIncrement}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+          </button>
+          <p className="counter-label">Current Count</p>
+        </div>
+
+        <div className="stats-row">
+          <div className="stat-item">
+            <div className="stat-value text-primary">{count * 2}</div>
+            <div className="stat-label">Doubled</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-value text-success">{count * count}</div>
+            <div className="stat-label">Squared</div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
