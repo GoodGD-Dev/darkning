@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import ArtGrid from '../Designer/components/ArtGrid'
+import ArtGrid from '../features/Designer/components/HomeGrid'
 
 const Home: React.FC = () => {
   // Dados de imagens para a galeria com campo order para ordenação personalizada

@@ -1,4 +1,3 @@
-// src/features/Designer/components/About/style.scss
 @use 'sass:color';
 @import '../../../../styles/bootstrap-custom';
 
@@ -201,76 +200,6 @@ $text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
           bottom: 0;
           width: 2px;
           background-color: $blood-red;
-        }
-      }
-    }
-  }
-
-  // Contato
-  .contact-section {
-    background-color: color.adjust($charcoal, $lightness: 8%);
-    padding: 2.5rem;
-    margin-bottom: 3rem;
-
-    h2 {
-      color: $blood-red;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-email {
-      font-size: 1.2rem;
-      color: $bone;
-      margin: 1.5rem 0;
-
-      i {
-        color: $blood-red;
-        margin-right: 0.5rem;
-      }
-    }
-
-    .btn-outline-blood {
-      color: $bone;
-      border: 2px solid $blood-red;
-      padding: 0.5rem 1.5rem;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: $blood-red;
-        color: $bone;
-      }
-    }
-
-    .exhibitions-section {
-      h2 {
-        margin-bottom: 1.5rem;
-      }
-
-      .exhibitions-list {
-        list-style: none;
-        padding: 0;
-
-        li {
-          display: flex;
-          margin-bottom: 1.5rem;
-
-          .exhibition-date {
-            flex: 0 0 80px;
-            font-weight: 600;
-            color: $blood-red;
-          }
-
-          .exhibition-info {
-            h4 {
-              margin: 0 0 0.3rem;
-              font-size: 1.1rem;
-            }
-
-            p {
-              margin: 0;
-              font-size: 0.95rem;
-              color: color.adjust($bone, $lightness: -15%);
-            }
-          }
         }
       }
     }

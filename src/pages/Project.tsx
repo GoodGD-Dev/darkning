@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import ProjectsGrid from '../Designer/components/ProjectsGrid'
+import ProjectsGrid from '@features/Designer/components/ProjectsGrid'
 
 const Projects: React.FC = () => {
   // Dados de exemplo para as imagens
