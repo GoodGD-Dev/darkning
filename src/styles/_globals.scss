@@ -1,0 +1,22 @@
+// src/styles/_globals.scss
+@import './bootstrap-custom';
+
+// Personalizações globais
+$font-base: 'Inter', sans-serif;
+$body-bg: #000000;
+$body-color: #ffffff;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-base;
+  background: $body-bg;
+  color: $body-color;
+  min-height: 100vh;
+}

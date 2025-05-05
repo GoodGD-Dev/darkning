@@ -7,7 +7,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        quietDeps: true
+        quietDeps: true,
+        // Remove the additionalData that was causing conflicts
+        // additionalData: `$enable-deprecation-messages: false;`
+        includePaths: ['node_modules']
       }
     }
   },
@@ -16,7 +19,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@features': path.resolve(__dirname, './src/features'),
       '@shared': path.resolve(__dirname, './src/shared'),
-      '@core': path.resolve(__dirname, './src/core')
+      '@core': path.resolve(__dirname, './src/core'),
+      bootstrap: path.resolve(__dirname, 'node_modules/bootstrap')
     }
   }
 })

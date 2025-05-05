@@ -1,0 +1,86 @@
+/* style.scss */
+@import '../../../styles/variables';
+@import '../../../styles/bootstrap-custom';
+
+// cores (fácil de trocar depois)
+$nav-btn-color--hover: #212529; // hover/focus
+$nav-btn-color: #ffffff; // estado normal
+$nav-btn-color--active: #6c757d; // cinza do Bootstrap (gray-600)
+
+.navbar {
+  position: relative;
+
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+    }
+  }
+}
+
+.navbar-brand {
+  color: #fff;
+
+  & img {
+    width: 60px;
+  }
+}
+
+.navbar-toggler {
+  color: $nav-btn-color;
+  border-color: rgba(255, 255, 255, 0.1);
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    position: relative;
+    padding-bottom: 0.25rem;
+    color: $nav-btn-color;
+    transition: color 0.2s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: $nav-btn-color--hover;
+      transition:
+        width 0.3s ease,
+        left 0.3s ease;
+    }
+
+    // Hover / Focus
+    &:hover,
+    &:focus {
+      color: $nav-btn-color--hover;
+
+      &::after {
+        left: 0;
+        width: 100%;
+        background-color: $nav-btn-color--hover;
+      }
+    }
+
+    // Estado ativo (link da página atual)
+    &.active,
+    &[aria-current='page'] {
+      color: $nav-btn-color--active !important;
+
+      &::after {
+        left: 0;
+        width: 100%;
+        background-color: $nav-btn-color--active;
+      }
+    }
+  }
+}
