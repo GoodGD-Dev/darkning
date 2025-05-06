@@ -1,0 +1,13 @@
+// src/styles/bootstrap-custom.scss
+// This file imports bootstrap core and your custom variables
+
+// First import your custom variables
+@import './variables';
+
+// Then import bootstrap's core functionality
+@import './bootstrap';
+
+// Then import fonts and any other external resources
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+// Any additional custom Bootstrap overrides can go here
